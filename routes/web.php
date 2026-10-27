@@ -40,6 +40,16 @@ Use App\Http\Controllers\PostsController;
 // Resources and contollers( creating a request for 'create', ''update',' desdtroy')
 // Route::resource('posts', PostsController::class);
 
-Route::get('/contact', [PostsController::class, 'contact']);
+// Route::get('/contact', [PostsController::class, 'contact']);
 
-Route::get('post/{id}/{name}/{password}', [PostsController::class, 'show_post']);
+// Route::get('post/{id}/{name}/{password}', [PostsController::class, 'show_post']);
+
+use Illuminate\Support\Facades\DB;
+
+Route::get('/insert', function(){
+
+// use a method from the Db class
+DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel','Laravel is the best thing that has happened to PHP, PERIOD!']);
+
+
+});
